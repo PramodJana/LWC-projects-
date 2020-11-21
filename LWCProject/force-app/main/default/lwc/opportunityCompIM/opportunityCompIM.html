@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Opportuities">
+        <div slot="actions">
+            <!-- <lightning-button label="Delete" variant="destructive" onclick={deleteSelectedRecord}></lightning-button> -->
+            <lightning-button label="Show All Opps" onclick={showAllOps}></lightning-button>
+            <lightning-button label="Show Won Opps" onclick={showWonOps}></lightning-button>
+        </div>
+       <template if:true={oppList}>
+        <lightning-datatable onrowselection={handleRowSelection} key-field="Id" columns={oppColumns} data={oppList} max-row-selection="1">
+
+        </lightning-datatable>
+    </template>
+    </lightning-card>
+</template>

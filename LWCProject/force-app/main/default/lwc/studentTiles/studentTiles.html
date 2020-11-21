@@ -1,0 +1,10 @@
+<template>
+
+    <template for:each={studentList} for:item="std">
+        <c-student-tile key={std.Id} student={std} ontileclick={handleTileClick}></c-student-tile>
+    </template>
+
+    <!-- <div class="slds-box">
+        <c-student-tile ></c-student-tile>
+    </div> -->
+</template>

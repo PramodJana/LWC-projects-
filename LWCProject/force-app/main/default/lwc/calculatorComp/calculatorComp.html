@@ -1,0 +1,18 @@
+<template>
+
+    <div class="slds-box">
+        <lightning-input label="First Number" onblur={handleFirstNumber} value={firstNumber}></lightning-input>
+        <lightning-input label="Second Number" onblur={handleSecondNumber} value={secondNumber}></lightning-input>
+    </div>
+
+    <div class="slds-box myfont">
+        Result is {result}
+    </div>
+
+    <div class="slds-box">
+    <lightning-button label="Addition" onclick={add}></lightning-button>
+    <lightning-button label="Subtraction" onclick={sub}></lightning-button>
+    <lightning-button label="Multiplication" onclick={mul}></lightning-button>
+    <lightning-button label="Division" onclick={div}></lightning-button>
+</div>
+</template>

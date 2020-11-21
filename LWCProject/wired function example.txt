@@ -1,0 +1,99 @@
+create a apex class in classes
+
+AccountController.cls
+public with sharing class AccountController {
+  
+    @AuraEnabled(cacheable=true)
+    public static List<Account> getAllAccounts(){
+        return [SELECT Name, NumberOfEmployees, Type,AnnualRevenue,Industry FROM Account
+        order by NumberOfEmployees desc
+        limit 10];
+    }
+}
+
+
+AccountController.cls-meta.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexClass xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <status>Active</status>
+</ApexClass>
+
+
+create a lightning web component in lwc
+
+accountCompWF.html
+<template>
+<div class="slds-box slds-theme_shade">
+    <p>Displaying Top 10 Account Details along with Tax Calculation with respect to NumberOfEmployees
+        with the help of Wired Function</p>
+</div>
+    <table class="slds-table slds-table_bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Account type</th>
+                <th> Industry</th>
+                <th>Employee</th>
+                <th>Tax</th>
+            </tr>
+        </thead>
+        <tbody>
+            <template for:each={accTaxList} for:item="acc">
+                <tr key={acc.Id}>
+                    <td>{acc.Name}</td>
+                    <td>{acc.type}</td>
+                    <td>{acc.industry}</td>
+                    <td>{acc.Employee}</td>
+                    <td>{acc.tax}</td>
+                </tr>
+            </template>
+        </tbody>
+    </table>
+</template>
+
+
+
+accountCompWF.js
+
+import { LightningElement, track, wire } from 'lwc';
+import getAllAccounts from '@salesforce/apex/AccountController.getAllAccounts';
+
+export default class AccountCompWF extends LightningElement {
+    @track accTaxList = [];
+
+    @wire(getAllAccounts)
+    wiredGetAllAccounts({data,error}){
+        if(data)
+        {
+            data.forEach((acc) => {
+                this.accTaxList.push(
+                    {
+                        Name:acc.Name,
+                        type:acc.Type,
+                        industry: acc.Industry,
+                        Employee: acc.NumberOfEmployees,
+                        tax: acc.AnnualRevenue * 0.1,
+                        id:acc.Id,
+                    }
+
+                );              
+            });
+        }
+        else if(error)
+        {
+
+        }
+    }
+}
+
+
+accountCompWF.js-meta.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__AppPage</target> 
+    </targets>
+</LightningComponentBundle>
