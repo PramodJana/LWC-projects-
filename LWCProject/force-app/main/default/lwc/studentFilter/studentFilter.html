@@ -1,3 +1,13 @@
 <template>
-    
+    <div class="slds-box" >
+       
+       <template if:true={accCombList}>
+          <lightning-combobox name="accList" label="Select Account" variant="label-hidden" 
+                              options={accCombList} value={selectedAccountId} 
+                              placeholder="Select an account"
+                              onchange={onAccountChange}  >
+
+          </lightning-combobox>
+         </template>
+    </div>
 </template>

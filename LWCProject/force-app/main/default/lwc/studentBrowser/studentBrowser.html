@@ -1,13 +1,11 @@
 <template>
-    <lightning-card title="Filters students by account name" icon-name="utility:search">
-
+    <lightning-card title="Filter Students By Account Name" icon-name="utility:search">
+        <c-student-filter onstudentfilter={handleStudentfilter}></c-student-filter>
     </lightning-card>
-
     <lightning-tabset variant="scoped">
-        <lightning-tab label="Gallery" title="Displaying Contacts in tiles format">
-            <c-student-tiles student-list={studentList} ontileclick={handleTileClick}></c-student-tiles>
+        <lightning-tab label="Gallery" title="Displaying contacts in tiles format">
+            <c-student-tiles ontileclick={handleTileClick} student-list={studentList}></c-student-tiles>
         </lightning-tab>
-
         <lightning-tab label="Grid" title="Displaying contacts in table format">
             <c-student-table student-list={studentList}></c-student-table>
         </lightning-tab>
