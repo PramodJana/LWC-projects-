@@ -1,6 +1,6 @@
 <template>
     <template if:true={isActive}>
-        <c-student-modal title="LWC Modal Comp" message="This Feature is not Available"></c-student-modal>
+        <c-student-modal onactivemodal={handleactivemodal} title="LWC Modal Comp" message="This Feature is not Available"></c-student-modal>
     </template>
 
     <lightning-card title="Opportuities with delete and refresh">

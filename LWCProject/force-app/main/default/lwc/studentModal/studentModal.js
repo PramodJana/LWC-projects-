@@ -6,5 +6,9 @@ export default class StudentModal extends LightningElement {
     closeModal(){
         const divRef = this.template.querySelector('div');
         divRef.classList.add('slds-hide');
+
+        //notify the parent component
+        const eventRef =  new CustomEvent('activemodal');
+        this.dispatchEvent(eventRef);
     }
 }

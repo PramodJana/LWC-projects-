@@ -1,7 +1,29 @@
 <template>
     <lightning-layout>
+        <lightning-layout-item size="2">
+    <div class="slds-box slds-theme_shade">
+        <lightning-vertical-navigation onselect={handleItemSelect}>
+            <lightning-vertical-navigation-section label="Browse">
+                <lightning-vertical-navigation-item-icon label="Student Browser" name="students" icon-name="utility:groups">
 
-        <lightning-layout-item size="9">
+                </lightning-vertical-navigation-item-icon>
+                <lightning-vertical-navigation-item-icon label="Oppotunity Report" name="opps" icon-name="action:new_opportunity">
+
+                </lightning-vertical-navigation-item-icon>
+                <lightning-vertical-navigation-item-icon label="Oppotunity Graph" name="graph" icon-name="utility:metrics">
+
+                </lightning-vertical-navigation-item-icon>
+            </lightning-vertical-navigation-section>
+            <lightning-vertical-navigation-section label="Accounts">
+                
+            </lightning-vertical-navigation-section>
+            </lightning-vertical-navigation>
+    </div>
+</lightning-layout-item>
+
+<template if:true={studentSelected}>
+    
+        <lightning-layout-item size="7">
             <c-student-browser></c-student-browser>
         </lightning-layout-item>
 
@@ -9,5 +31,19 @@
             <c-student-detail></c-student-detail>
         </lightning-layout-item>
         
-    </lightning-layout>
+    
+</template>
+
+<template if:true={oppReportSelected}>
+    <lightning-layout-item size="10">
+        <c-opportunity-d-r></c-opportunity-d-r>
+    </lightning-layout-item>
+</template>
+
+<template if:true={oppgraphSelected}>
+    <lightning-layout-item size="10">
+      Component is under construction
+    </lightning-layout-item>
+</template>
+</lightning-layout>
 </template>

@@ -62,7 +62,9 @@ export default class OpportunityDR extends LightningElement {
         
     }
 
-
+    handleactivemodal(event){
+        this.isActive = false;
+    }
 
     sendEmail(){
         this.isActive = true;
