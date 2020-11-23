@@ -39,7 +39,7 @@ export default class StudentBrowser extends LightningElement {
     }
     handleTileClick(event){
         this.selectedStudentId=event.detail.stdId;
-        alert('Tiles have recieved information '+this.selectedStudentId);
+        // alert('Tiles have recieved information '+this.selectedStudentId);
 
         fireEvent(this.pageRef, 'studentChange',{stdId : this.selectedStudentId});
     }

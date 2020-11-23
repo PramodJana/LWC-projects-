@@ -7,7 +7,7 @@ export default class StudentTile extends LightningElement {
     }*/
 
     handleClick(){
-        alert('You Clicked on '+this.student.Id+' '+this.student.Name);
+        // alert('You Clicked on '+this.student.Id+' '+this.student.Name);
         const eventRef = new CustomEvent('tileclick',{bubbles:true, composed:true, detail: {stdId : this.student.Id}});
         this.dispatchEvent(eventRef);
 

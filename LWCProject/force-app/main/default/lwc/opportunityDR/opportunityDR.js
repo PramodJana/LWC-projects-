@@ -21,6 +21,8 @@ export default class OpportunityDR extends LightningElement {
     oppColumns = COLUMNS;
     _wiredServerResponse;
 
+    isActive = false;
+
     @wire(getAllOpportunities)  
     wiredGetAllOpportunities(serverResponse){   
         this._wiredServerResponse = serverResponse;
@@ -58,5 +60,11 @@ export default class OpportunityDR extends LightningElement {
         
       //  alert("You have selected "+this.oppId);
         
+    }
+
+
+
+    sendEmail(){
+        this.isActive = true;
     }
 }
