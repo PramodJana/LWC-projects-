@@ -7,11 +7,11 @@ A Lightning web component that renders UI must include an HTML file, a JavaScrip
 The folder and its files must have the same name, including capitalization and underscores.
 
 myComponent
-   ├──myComponent.html
-   ├──myComponent.js
-   ├──myComponent.js-meta.xml
-   ├──myComponent.css
-   └──myComponent.svg
+    myComponent.html
+    myComponent.js
+    myComponent.js-meta.xml
+    myComponent.css
+    myComponent.svg
 
 
 The folder and its files must follow these naming rules.
